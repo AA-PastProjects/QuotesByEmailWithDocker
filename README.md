@@ -32,4 +32,4 @@ If this application is set up correctly it will do the following.
 7. Creates an email with both the quote, author and wikipedia information.
 8. Sends the email to the given email address via an SMTP protocol that goes to the external mail service Mailgun.
 
-If everything went as intended (and your email + mailgun settings were set up correctly) you will shortly after get an email with the content acquired by the service.
+If everything went as intended (meaning your email was correct + your docker and mailgun settings were set up correctly) you will shortly after get an email with the content acquired by the service.
