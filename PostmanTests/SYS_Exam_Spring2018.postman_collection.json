@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "1ccd6a31-1ccc-4516-867f-edfacb0e2ea5",
+		"name": "SYS_Exam_Spring2018",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetQuote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3970119e-3e76-48a0-8f70-124f60dc7b33",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string 'OK'\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});",
+							"",
+							"pm.test(\"'quote' variable was there, did not check value inside it.\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"quote\");",
+							"});",
+							"",
+							"pm.test(\"'author' variable was there, did not check value inside it.\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"author\");",
+							"});",
+							"",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+							" ",
+							"tests[\"Has Content-Type header\"] = contentTypeHeaderExists;",
+							" ",
+							"if (contentTypeHeaderExists) {",
+							"    tests[\"Content-Type is application/json\"] = ",
+							"      responseHeaders[\"Content-Type\"].has(\"application/json; charset=utf-8\");",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:6002/api/Quote",
+					"host": [
+						"localhost"
+					],
+					"port": "6002",
+					"path": [
+						"api",
+						"Quote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ValidateEmail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f61f9091-22b1-44b2-917f-73a8bc744305",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string 'OK'\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});",
+							"",
+							"pm.test(\"'valid' variable was there, did not check value inside it.\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"valid\");",
+							"});",
+							"",
+							"pm.test(\"'address' variable was there, did not check value inside it.\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"address\");",
+							"});",
+							"",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+							" ",
+							"tests[\"Has Content-Type header\"] = contentTypeHeaderExists;",
+							" ",
+							"if (contentTypeHeaderExists) {",
+							"    tests[\"Content-Type is application/json\"] = ",
+							"      responseHeaders[\"Content-Type\"].has(\"application/json; charset=utf-8\");",
+							"}",
+							"",
+							"var poweredByHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"alexandreasen09@gmail.com\",\r\n  \"nameOfReceiver\": \"Alex Andreasen\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:6004/api/EmailValidation/example@email.com",
+					"host": [
+						"localhost"
+					],
+					"port": "6004",
+					"path": [
+						"api",
+						"EmailValidation",
+						"example@email.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetWikiPage",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dcdc9605-22a0-4b8f-9b30-0e8acde70924",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string 'OK'\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});",
+							"",
+							"pm.test(\"'wikiText' variable was there, did not check value inside it.\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"wikiText\");",
+							"});",
+							"",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+							" ",
+							"tests[\"Has Content-Type header\"] = contentTypeHeaderExists;",
+							" ",
+							"if (contentTypeHeaderExists) {",
+							"    tests[\"Content-Type is application/json\"] = ",
+							"      responseHeaders[\"Content-Type\"].has(\"application/json; charset=utf-8\");",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:6003/api/WikiPage/Henry_Ford",
+					"host": [
+						"localhost"
+					],
+					"port": "6003",
+					"path": [
+						"api",
+						"WikiPage",
+						"Henry_Ford"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostEmail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91daf3db-47a8-4bcc-9d88-faea780ca303",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string 'OK'\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 3500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3500);",
+							"});",
+							"",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+							" ",
+							"tests[\"Has Content-Type header\"] = contentTypeHeaderExists;",
+							" ",
+							"if (contentTypeHeaderExists) {",
+							"    tests[\"Content-Type is application/json\"] = ",
+							"      responseHeaders[\"Content-Type\"].has(\"application/json; charset=utf-8\");",
+							"}",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"alexandreasen09@gmail.com\",\r\n  \"nameOfReceiver\": \"Alex Andreasen\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:6001/api/EmailSending",
+					"host": [
+						"localhost"
+					],
+					"port": "6001",
+					"path": [
+						"api",
+						"EmailSending"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetExampleEmail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "821b906b-aa11-4bc3-b341-4bd0005ede67",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status code name has string 'OK'\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});",
+							"",
+							"pm.test(\"'address' variable was there, did not check value inside it.\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"address\");",
+							"});",
+							"",
+							"pm.test(\"'nameOfReceiver' variable was there, did not check value inside it.\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"nameOfReceiver\");",
+							"});",
+							"",
+							"var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+							" ",
+							"tests[\"Has Content-Type header\"] = contentTypeHeaderExists;",
+							" ",
+							"if (contentTypeHeaderExists) {",
+							"    tests[\"Content-Type is application/json\"] = ",
+							"      responseHeaders[\"Content-Type\"].has(\"application/json; charset=utf-8\");",
+							"}",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:6001/api/EmailSending",
+					"host": [
+						"localhost"
+					],
+					"port": "6001",
+					"path": [
+						"api",
+						"EmailSending"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

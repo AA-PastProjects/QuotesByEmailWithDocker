@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  api_emailsender:
+    image: apiemailsender
+    ports:
+      - 6001:80
+    build:
+      context: .
+      dockerfile: API_EmailSender/Dockerfile
+
+  api_quotefetcher:
+    image: apiquotefetcher
+    ports:
+      - 6002:80
+    build:
+      context: .
+      dockerfile: API_QuoteFetcher/Dockerfile
+
+
+  api_wikipediafetcher:
+    image: apiwikipediafetcher
+    ports:
+      - 6003:80
+    build:
+      context: .
+      dockerfile: API_WikipediaFetcher/Dockerfile
+
+
+  api_emailvalidator:
+    image: apiemailvalidator
+    ports:
+      - 6004:80
+    build:
+      context: .
+      dockerfile: API_EmailValidator/Dockerfile
+
